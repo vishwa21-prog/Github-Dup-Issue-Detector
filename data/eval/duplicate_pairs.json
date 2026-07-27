@@ -1,0 +1,108 @@
+{
+  "_readme": "Each cluster groups issues that are true duplicates of each other (same underlying bug/request, different wording). Clusters of size 1 are genuinely unique issues that must NOT be flagged as duplicates. This starter set is hand-authored to exercise paraphrasing, template boilerplate, and topical-but-different issues; replace/extend with real mined issues from your target repo for a production-representative number.",
+  "clusters": [
+    {
+      "cluster_id": "crash_on_startup",
+      "issues": [
+        {"title": "App crashes immediately on launch", "body": "Every time I open the app it crashes within 1-2 seconds. No error dialog, just closes. Happens on every launch since updating to v2.3.0."},
+        {"title": "Crash on startup after update", "body": "### Steps to reproduce\n1. Update to latest version\n2. Open the app\n\nExpected: app opens.\nActual: app closes instantly, no error shown. Started after upgrading to 2.3.0."},
+        {"title": "Application closes right after opening it", "body": "Opening the app results in an immediate crash. Nothing in the logs. Reproducible 100% of the time on my machine, started right after the last update."}
+      ]
+    },
+    {
+      "cluster_id": "memory_leak",
+      "issues": [
+        {"title": "Memory usage keeps growing during long sessions", "body": "If I leave the app open for a few hours, memory usage climbs from ~200MB to over 2GB. Doesn't seem to plateau. Have to restart the app periodically."},
+        {"title": "Possible memory leak after extended use", "body": "```\nRSS: 210MB -> 1.9GB over 3 hours\n```\nNo obvious trigger, just grows steadily the longer the app stays open. Restarting fixes it temporarily."},
+        {"title": "RAM consumption increases over time and never goes down", "body": "Noticed the app's memory footprint keeps increasing the longer it runs, even when idle. Eventually gets slow and I have to restart it."},
+        {"title": "App becomes sluggish after hours of use due to memory growth", "body": "Performance degrades the longer the app has been open, and I can see in Activity Monitor that memory usage is steadily climbing without ever coming back down."}
+      ]
+    },
+    {
+      "cluster_id": "login_failure",
+      "issues": [
+        {"title": "Cannot log in with correct credentials", "body": "I'm entering the right username and password but I keep getting 'invalid credentials'. Tried resetting my password, same issue."},
+        {"title": "Login fails even with valid username/password", "body": "### Environment\nBrowser: Chrome\n\nSteps: enter correct email + password, click login. Result: 'invalid credentials' error even though I just reset the password and confirmed it works via the reset email flow."},
+        {"title": "Getting 'invalid credentials' error on login despite correct password", "body": "Password is definitely correct (just reset it), but the login form still rejects it with an invalid credentials message."}
+      ]
+    },
+    {
+      "cluster_id": "csv_export_encoding",
+      "issues": [
+        {"title": "Exported CSV has garbled special characters", "body": "When I export data containing accented characters (é, ñ, etc.) to CSV, they show up as mojibake (Ã©, Ã±) when opened in Excel."},
+        {"title": "CSV export encoding issue with non-ASCII characters", "body": "Non-English characters get corrupted in the exported CSV file. Looks like an encoding mismatch, possibly missing a UTF-8 BOM for Excel compatibility."}
+      ]
+    },
+    {
+      "cluster_id": "pagination_bug",
+      "issues": [
+        {"title": "Pagination shows duplicate rows on page 2", "body": "Going to page 2 of the results table shows some of the same rows that were already on page 1."},
+        {"title": "Some records appear twice when paginating", "body": "### Steps\n1. Go to list view\n2. Navigate to next page\n\nA handful of rows from page 1 also appear on page 2. Looks like an off-by-one issue in the pagination offset."}
+      ]
+    },
+    {
+      "cluster_id": "dark_mode_request",
+      "issues": [
+        {"title": "Please add a dark mode / theme option", "body": "Would love a dark theme for late-night usage. Currently the bright white background is hard on the eyes."},
+        {"title": "Feature request: dark theme support", "body": "Many users have asked for this — a dark mode toggle in settings would be great, especially for OLED screens and low-light environments."}
+      ]
+    },
+    {
+      "cluster_id": "slow_search_query",
+      "issues": [
+        {"title": "Search is extremely slow with large datasets", "body": "Searching in a workspace with 100k+ items takes 10-15 seconds to return results. Feels like a full table scan rather than using an index."},
+        {"title": "Search query performance degrades badly at scale", "body": "Tested search on a large dataset (~100k records) and response times are unacceptably slow, several seconds per query. Might need an index on the search column."}
+      ]
+    },
+    {
+      "cluster_id": "docs_typo",
+      "issues": [
+        {"title": "Typo in installation docs", "body": "The Quickstart page says 'pip instal' instead of 'pip install'. Minor but confusing for first-time users copy-pasting the command."}
+      ]
+    },
+    {
+      "cluster_id": "api_rate_limit_docs",
+      "issues": [
+        {"title": "API rate limits are not documented", "body": "Couldn't find anywhere in the docs what the actual request-per-minute limit is for the public API. Had to find out by hitting a 429."}
+      ]
+    },
+    {
+      "cluster_id": "webhook_retry",
+      "issues": [
+        {"title": "Webhooks are not retried on failure", "body": "If our endpoint returns a 500 or times out, the webhook delivery is not retried at all — we just silently miss the event. Would like at least a few retries with backoff."}
+      ]
+    },
+    {
+      "cluster_id": "csv_export_large_files",
+      "issues": [
+        {"title": "Exporting more than 50k rows times out", "body": "When exporting a dataset with over 50,000 rows to CSV, the request just times out after 30s instead of streaming the file or running as a background job."}
+      ]
+    },
+    {
+      "cluster_id": "mobile_layout_bug",
+      "issues": [
+        {"title": "Sidebar overlaps content on small screens", "body": "On mobile viewports (<400px wide) the sidebar doesn't collapse and overlaps the main content area, making it unreadable."},
+        {"title": "Mobile view: sidebar covers page content", "body": "On my phone (iPhone SE size screen), the navigation sidebar stays open and sits on top of the page content instead of collapsing into a hamburger menu."}
+      ]
+    },
+    {
+      "cluster_id": "timezone_display_bug",
+      "issues": [
+        {"title": "Timestamps shown in UTC instead of local timezone", "body": "All dates/times in the dashboard are displayed in UTC regardless of my profile's timezone setting. Expected them to be converted to local time."},
+        {"title": "Dashboard dates don't respect user timezone setting", "body": "I set my timezone to EST in settings, but every timestamp on the dashboard still shows UTC. Seems like the timezone setting isn't actually applied to the display layer."}
+      ]
+    },
+    {
+      "cluster_id": "unique_billing_question",
+      "issues": [
+        {"title": "How do I get an invoice with our company's VAT number on it?", "body": "We need our VAT number included on invoices for accounting purposes. Is there a way to add this to our billing profile?"}
+      ]
+    },
+    {
+      "cluster_id": "unique_sso_request",
+      "issues": [
+        {"title": "Support SAML SSO for enterprise accounts", "body": "Our IT department requires SAML-based single sign-on for any tool we adopt. Is this on the roadmap?"}
+      ]
+    }
+  ]
+}
